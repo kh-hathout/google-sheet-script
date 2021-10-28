@@ -1,0 +1,40 @@
+function UntitledMacro() {
+  var spreadsheet = SpreadsheetApp.getActive();
+
+  //////////// Go to this sheet ////////////////
+
+  spreadsheet.setActiveSheet(spreadsheet.getSheetByName('S.O GP'), true);
+
+  //////////// Change Header to comply with odoo requirement //////////////// Start
+
+  spreadsheet.getRange('B1').activate();
+  spreadsheet.getCurrentCell().setValue('origin');
+  spreadsheet.getRange('P1').activate();
+  spreadsheet.getCurrentCell().setValue('user_id');
+  spreadsheet.getRange('M1').activate();
+  spreadsheet.getCurrentCell().setValue('partner_id');
+  spreadsheet.getRange('K1').activate();
+  spreadsheet.getCurrentCell().setValue('date_order');
+  spreadsheet.getRange('D1').activate();
+  spreadsheet.getCurrentCell().setValue('order_line/product_id');
+  spreadsheet.getRange('E1').activate();
+  spreadsheet.getCurrentCell().setValue('order_line/product_uom_qty');
+  spreadsheet.getRange('I1').activate();
+  spreadsheet.getCurrentCell().setValue('order_line/price_unit');
+  spreadsheet.getRange('Q1').activate();
+  spreadsheet.getCurrentCell().setValue('order_line/tax_id');
+
+  //////////// Change Header to comply with odoo requirement //////////////// End
+
+  //////////// arrange according to origin //////////////// Start
+
+  var spreadsheet = SpreadsheetApp.getActive();
+  var sheet = spreadsheet.getActiveSheet();
+  sheet.getRange(1, 1, sheet.getMaxRows(), sheet.getMaxColumns()).activate();
+  sheet = spreadsheet.getActiveSheet();
+  sheet.getRange(1, 1, sheet.getMaxRows(), sheet.getMaxColumns()).createFilter();
+  spreadsheet.getRange('B1').activate();
+  spreadsheet.getActiveSheet().getFilter().sort(2, true);
+
+
+};

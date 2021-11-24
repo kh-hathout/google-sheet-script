@@ -1,0 +1,87 @@
+function SO_Q1() {
+  var spreadsheet = SpreadsheetApp.getActive();
+
+//////////// Go to this sheet ////////////////
+
+  spreadsheet.setActiveSheet(spreadsheet.getSheetByName('Q1'), true);
+
+
+//////////// Change Header to comply with odoo requirement //////////////// Start
+  spreadsheet.getRange('A1').activate();
+  spreadsheet.getCurrentCell().setValue('id');
+  spreadsheet.getRange('B1').activate();
+  spreadsheet.getCurrentCell().setValue('origin');
+  spreadsheet.getRange('C1').activate();
+  spreadsheet.getCurrentCell().setValue('client_order_ref');
+  spreadsheet.getRange('D1').activate();
+  spreadsheet.getCurrentCell().setValue('date_order');
+  spreadsheet.getRange('E1').activate();
+  spreadsheet.getCurrentCell().setValue('user_id');
+  spreadsheet.getRange('F1').activate();
+  spreadsheet.getCurrentCell().setValue('partner_id');
+  spreadsheet.getRange('G1').activate();
+  spreadsheet.getCurrentCell().setValue('order_line/product_id');
+  spreadsheet.getRange('H1').activate();
+  spreadsheet.getCurrentCell().setValue('order_line/name');
+  spreadsheet.getRange('I1').activate();
+  spreadsheet.getCurrentCell().setValue('order_line/product_uom_qty');
+  spreadsheet.getRange('J1').activate();
+  spreadsheet.getCurrentCell().setValue('order_line/price_unit');
+  spreadsheet.getRange('K1').activate();
+  spreadsheet.getCurrentCell().setValue('order_line/discount');
+  spreadsheet.getRange('L1').activate();
+  spreadsheet.getCurrentCell().setValue('order_line/tax_id');
+  spreadsheet.getRange('L2').activate();
+//////////// Change Header to comply with odoo requirement //////////////// End
+
+
+//////////// id
+  spreadsheet.getRange('A2').activate();
+  spreadsheet.getCurrentCell().setFormula('=ArrayFormula(\'Change Header\'!A2:A)');
+////////////
+//////////// origin
+  spreadsheet.getRange('B2').activate();
+  spreadsheet.getCurrentCell().setFormula('=ArrayFormula(\'Change Header\'!A2:A)');
+////////////
+//////////// client_order_ref
+  spreadsheet.getRange('C2').activate();
+  spreadsheet.getCurrentCell().setFormula('=ArrayFormula(\'Change Header\'!A2:A)');
+////////////
+//////////// date_order = D
+  spreadsheet.getRange('D2').activate();
+  spreadsheet.getCurrentCell().setFormula('=ArrayFormula(\'Change Header\'!O2:O)');
+////////////
+//////////// user_id = E
+  spreadsheet.getRange('E2').activate();
+  spreadsheet.getCurrentCell().setFormula('=ArrayFormula(\'Change Header\'!W2:W)');
+////////////
+//////////// partner_id = F
+  spreadsheet.getRange('F2').activate();
+  spreadsheet.getCurrentCell().setFormula('=ArrayFormula(\'Change Header\'!C2:C)');
+////////////
+//////////// order_line/product_id - order_line/name - order_line/product_uom_qty = G
+  spreadsheet.getRange('G2').activate();
+  spreadsheet.getCurrentCell().setFormula('=ArrayFormula(\'Change Header\'!S2:S)');
+////////////
+//////////// order_line/price_unit = J
+  spreadsheet.getRange('J2').activate();
+  spreadsheet.getCurrentCell().setFormula('=ArrayFormula(\'Change Header\'!X2:X)');
+////////////
+
+//////////// order_line/discount = K
+  spreadsheet.getRange('K2').activate();
+  spreadsheet.getCurrentCell().setFormula('=ArrayFormula(\'Change Header\'!I2:I)');
+  spreadsheet.getRange('K:K').activate();
+  spreadsheet.getActiveRangeList().setNumberFormat('0.00')
+  .setHorizontalAlignment('center');
+////////////
+
+//////////// إجمالي الطلب = M
+  spreadsheet.getRange('M1').activate();
+  spreadsheet.getCurrentCell().setFormula('=ArrayFormula(\'Change Header\'!N1:N)');
+  spreadsheet.getRange('M:M').activate();
+  spreadsheet.getActiveRangeList().setHorizontalAlignment('center')
+  .setNumberFormat('0.00');
+////////////
+
+};
